@@ -1,0 +1,99 @@
+<app-menu-zero></app-menu-zero>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+
+<form [formGroup]="registerUserFormGroup" novalidate (ngSubmit)="onSubmit()">
+ 
+  <mat-card class="register-user-card">
+      <mat-card-header >
+        <mat-card-title>{{"Creat customer profile"}} </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+       
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Company</mat-label>
+              <input matInput formControlName="company" />
+              <mat-hint>Company name</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
+  
+
+        <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" />
+                <mat-hint>First and last name</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+
+
+
+         <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+             
+                <mat-label>Email</mat-label>
+                <input type="CustomerEmail" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="emailFormControl.hasError('CustomerEmail') && !emailFormControl.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <mat-label> Phone number</mat-label>
+                <input matInput formControlName="customerPhoneNumber" />
+                <mat-icon matSuffix>phone</mat-icon>
+                <mat-hint>Include area code, ex.(+351)</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <mat-label> Nif</mat-label>
+                <input matInput formControlName="nif" />
+                <mat-icon matSuffix>filter_9</mat-icon>
+                <mat-hint>(9)Nine digits</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" />
+                <mat-hint>First and last name</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+
+
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" >
+         Submit
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+
+</main>

@@ -1,0 +1,12 @@
+pipelines:
+  default:
+    - step:
+        image: mcr.microsoft.com/dotnet/sdk:5.0
+        name: Build and Test
+        caches:
+          - dotnetcore
+        script:
+          - cd MasterData
+          - dotnet restore
+          - dotnet build
+          - dotnet test

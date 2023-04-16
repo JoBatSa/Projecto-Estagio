@@ -1,0 +1,152 @@
+
+<app-menu-zero></app-menu-zero>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<mat-card class="search-user-card">
+    <h2>History Reports &nbsp;</h2>
+
+    <p>
+      
+  
+    <hr />
+    <p>&nbsp;</p>
+
+    <div class="mat-table-container">
+        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="changeSort($event)">
+            <!-- Position Column -->
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Id">
+                    {{ "id"  }}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="partNumber">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by PartNumber">
+                    {{ "partNumber"  }}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.partNumber}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="okParts">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by OkParts">
+                    {{ "okParts"  }}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.okParts}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="nokParts">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by OkParts">
+                    {{ "nokParts"  }}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.nokParts}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="timeDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Location">
+                    {{ "timeDate"}}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.timeDate}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="observation">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Observation">
+                    {{ "observation"}}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.observation}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="workOrder">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by WorkOrder">
+                    {{ "workOrder"}}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.workOrder}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="companyName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by CompanyName">
+                    {{ "companyName"}}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.companyName}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="employerName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Employee Name">
+                    {{ "employerName"  }}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.employerName}} </td>
+            </ng-container>
+
+
+       
+
+            <tr mat-header-row *matHeaderRowDef="tableColumnHeaders"></tr>
+            <tr mat-row *matRowDef="let element; let row; columns: tableColumnHeaders;"
+                (click)="selectUser(element.id, element.employerName, element.companyName,element.partNumber, element.okParts, element.nokParts, element.timeDate, element.workOrder, element.observation);">
+            </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20,100]" showFirstLastButtons
+            aria-label="Select page of periodic elements">
+
+            
+        </mat-paginator>
+
+
+       
+    </div>
+
+</mat-card>
+<!--     Resultados-->
+
+<mat-card class="search-user-card">
+     <hr />
+    <h2>Resultado&nbsp;</h2>
+
+    <p>
+     
+        <hr />
+   
+
+
+    <mat-list>
+        <mat-list-item>Id : {{resultId}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Employee Name : {{resultEmployeeName}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Company :  {{resultCompanyName}} </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item> Ok Parts : {{resultOkParts}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item> Nok Parts : {{resultNokParts}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Date :  {{resultTimeDate}} </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Work Order: {{resultWorkOrder}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Observation : {{resultObservation}}</mat-list-item>
+        <mat-divider></mat-divider>
+               
+  
+ <p>&nbsp;</p>
+
+
+ <div>
+    <button mat-raised-button color="primary" id="button" (click)=" clean(); "
+        class="btn btn-primary">
+        Limpar <!--by {{favoriteSearch}}-->
+    </button>
+</div>
+
+
+    </mat-list>
+
+
+</mat-card>
+
+
+
+</main>

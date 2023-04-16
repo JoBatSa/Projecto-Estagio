@@ -1,0 +1,140 @@
+<app-menu-zero></app-menu-zero>
+
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  
+
+<form [formGroup]="registerUserFormGroup" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="register-user-card">
+    <mat-card-header >
+      <mat-card-title>{{"New Report"}} </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+     
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Part Number</mat-label>
+            <input matInput formControlName="partNumber" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Ok Parts</mat-label>
+            <input matInput formControlName="okParts" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>NOk Parts</mat-label>
+            <input matInput formControlName="nokParts" />
+          </mat-form-field>
+        </div>
+      </div>
+
+<!--
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>{{ "Part Number"  }}</mat-label>
+            <input matInput formControlName="partNumber" required />
+          </mat-form-field>
+        </div>
+      </div>
+
+      
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>{{ "Password"  }}</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required />
+            <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{ hide ? "visibility_on" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+-->
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" >
+            <mat-label>TimeDate</mat-label>
+            <input matInput [matDatepicker]="datepicker" formControlName="timeDate" required />
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker>
+              <mat-datepicker-actions>
+                <button mat-button matDatepickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" matDatepickerApply>
+                  Apply
+                </button>
+              </mat-datepicker-actions>
+            </mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" >
+            <mat-label>Observation</mat-label>
+            <input matInput formControlName="observation"  />
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>WorkOrder</mat-label>
+            <input disabled value= "{{idType}}" matInput />
+            
+          <!--  <input matInput formControlName="workOrder" />-->
+          </mat-form-field>
+          <mat-icon (click)="userSearchModalDialog('idType')">search</mat-icon>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Company Name</mat-label>
+           <!-- <input matInput formControlName="companyName" />-->
+            <input disabled value= "{{companyType}}" matInput />
+
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Employee Name</mat-label>
+           <!-- <input matInput formControlName="companyName" />-->
+            <input disabled value= "{{nameUser}}" matInput />
+
+          </mat-form-field>
+        </div>
+      </div>
+
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" >
+        Submit
+        
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+</main>

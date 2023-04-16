@@ -1,0 +1,101 @@
+
+<app-menu-zero></app-menu-zero>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+<form [formGroup]="registerUserFormGroup" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="register-user-card">
+    <mat-card-header >
+      <mat-card-title>{{"Create WorkAuthorization"}} </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+     
+      
+        <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <mat-label>WorkOrder Number</mat-label>
+                <input matInput disabled value= "{{idWOType}}"  />
+                
+              <!--  <input matInput formControlName="workOrder" />-->
+              </mat-form-field>
+              <mat-icon (click)="workOrderSearchModalDialog('idWOType')">search</mat-icon>
+            </div>
+          </div>
+      
+      
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <mat-label>Company Name</mat-label>
+               <!-- <input matInput formControlName="companyName" />-->
+                <input disabled value= "{{companyType}}" matInput />
+    
+              </mat-form-field>
+            </div>
+          </div>
+ 
+      
+
+          <div class="row">
+            <div class="col">
+              <mat-form-field class="full-width">
+                <mat-label>VisualAid Number</mat-label>
+                <input matInput disabled value= "{{idVAidType}}"  />
+                
+              <!--  <input matInput formControlName="workOrder" />-->
+              </mat-form-field>
+              <mat-icon (click)="visualAidSearchModalDialog('idVAidType')">search</mat-icon>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+    
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Employee number</mat-label>
+            <input matInput disabled value= "{{idEmpType}}"  #empNumber />
+            
+
+
+
+          </mat-form-field>
+          <mat-icon (click)="employeeSearchModalDialog('idEmpType')">search</mat-icon>
+          <button type="button" class="add-button" (click)="add(empNumber.value); empNumber.value=''">
+            Add Employee
+          </button>
+        </div>
+      </div>
+
+
+
+
+
+
+
+            <mat-form-field appearance="fill">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date"formControlName="beginWork" required>
+          <input matEndDate placeholder="End date" formControlName="endWork" required>
+          </mat-date-range-input>
+         <mat-hint>Begin & End Date </mat-hint>
+         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+             </mat-card-content>
+             <mat-card-actions>
+         <button mat-raised-button color="primary" type="submit"> Submit </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+</main>

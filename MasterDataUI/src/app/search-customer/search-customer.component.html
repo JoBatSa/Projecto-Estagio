@@ -1,0 +1,152 @@
+<app-menu-zero></app-menu-zero>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+    <mat-card class="search-user-card">
+    <h2>Search Customers &nbsp;</h2>
+
+    <p>
+        <strong>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Search.."  type="text" company="SearchCompany" #SearchCompany>
+            </mat-form-field>
+        </strong>
+
+        <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" [(ngModel)]="favoriteSearch">
+            <mat-radio-button class="radio-button" *ngFor="let WorkAuthorization of search" [value]="WorkAuthorization">
+                {{WorkAuthorization}}
+            </mat-radio-button>
+        </mat-radio-group>
+
+    <div>
+        <button mat-raised-button color="primary" id="button" (click)=" getselection(SearchCompany.value); "
+            class="btn btn-primary">
+            Search <!--by {{favoriteSearch}}-->
+        </button>
+    </div>
+
+    <hr />
+    <p>&nbsp;</p>
+
+    <div class="mat-table-container">
+        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="changeSort($event)">
+            <!-- Position Column -->
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Id">
+                    {{ "id"  }}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="company">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by PartNumber">
+                    {{ "company"  }}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.company}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by OkParts">
+                    {{ "name"  }}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="customerEmail">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by OkParts">
+                    {{ "customerEmail"  }}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.customerEmail}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="customerPhoneNumber">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Location">
+                    {{ "customerPhoneNumber"}}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.customerPhoneNumber}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="nif">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Observation">
+                    {{ "nif"}}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.nif}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="active">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by CompanyCompany">
+                    {{ "active"}}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+            </ng-container>
+
+              
+
+            <tr mat-header-row *matHeaderRowDef="tableColumnHeaders"></tr>
+            <tr mat-row *matRowDef="let element; let row; columns: tableColumnHeaders;"
+                (click)="selectUser(element.id, element.company, element.name,element.customerEmail, element.customerPhoneNumber, element.nif,  element.active);">
+            </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20,100]" showFirstLastButtons
+            aria-label="Select page of periodic elements">
+
+            
+        </mat-paginator>
+
+
+       
+    </div>
+
+</mat-card>
+<!--     Resultados-->
+
+<mat-card class="search-user-card">
+     <hr />
+    <h2>Resultado&nbsp;</h2>
+
+    <p>
+     
+        <hr />
+   
+
+
+    <mat-list>
+        <mat-list-item>Id : {{resultId}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Company: {{resultCompany}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Name :  {{resultName}} </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item> Email: {{resultCustomerEmail}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item> Phone Number : {{resultCustomerPhoneNumber}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item> Nif : {{resultNif}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item> Active : {{resultActive}}</mat-list-item>
+        <mat-divider></mat-divider>
+               
+  
+ <p>&nbsp;</p>
+
+
+ <div>
+    <button mat-raised-button color="primary" id="button" (click)=" clean(); "
+        class="btn btn-primary">
+        Limpar <!--by {{favoriteSearch}}-->
+    </button>
+</div>
+
+
+    </mat-list>
+
+
+</mat-card>
+
+
+
+</main>
+

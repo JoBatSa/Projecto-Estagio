@@ -1,0 +1,60 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="false"
+    [fixedTopGap]="0"
+    
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="'side'"
+    [opened]=" true"
+  >
+    <mat-toolbar>{{ "Navigation"  }}</mat-toolbar>
+    <mat-nav-list>
+      <div>
+        <a
+          mat-list-item
+          disableRipple
+          *ngFor="let section of sections | async"
+          href="{{ section.route }}"
+          >{{ section.title }}</a
+        >
+      </div>
+      <div [ngClass]="appropriateBottomClass">
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+        id="drawerButton"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span style="display:inline-block;width:100%">
+        <button _ngcontent-lky-c104="" type="button" aria-label="Toggle sidenav" mat-icon-button="" (click)="drawer.toggle()" style="position:relative;top:-4px;"
+                class="mat-focus-indicator mat-icon-button mat-button-base ng-star-inserted">
+          <span class="mat-button-wrapper">
+            <mat-icon _ngcontent-lky-c104="" role="img" aria-label="Side nav toggle icon" 
+                      class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">
+                      menu
+            </mat-icon>
+          </span>
+          <span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round" ng-reflect-disabled="false" ng-reflect-centered="true" ng-reflect-trigger="[object HTMLButtonElement]"></span>
+          <span class="mat-button-focus-overlay"></span>
+        </button>
+      
+        <a [routerLink]="['/']" style="text-decoration: none; color: white;">GECUR-Gestor de Recursos</a>
+       
+      </span>
+    </mat-toolbar>
+
+    
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

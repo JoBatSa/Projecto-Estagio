@@ -1,0 +1,197 @@
+.search-user-card {
+  width: 90%;
+  margin: 10px auto auto auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.shipping-card {
+  min-width: 120px;
+  margin: 20px auto;
+}
+
+.mat-radio-button {
+  display: block;
+  margin: 5px 0;
+}
+
+#button
+{
+  width:100%;
+}
+
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+.mat-table-container {
+  width: 100%;
+  margin: auto;
+}
+.mat-table {
+  width: 100%;
+  border-left: 1px solid rgb(228, 227, 227);
+  border-right: 1px solid rgb(228, 227, 227);
+  margin-top: 10px;
+}
+
+.mat-table td,
+th {
+  font-size: 0.7em;
+  padding: 0px 0px 0px 5px;
+  margin: 0px;
+}
+
+.mat-header-row {
+  height: 0px;
+}
+
+.mat-row {
+  height: 0px;
+  cursor: pointer;
+}
+
+.mat-row:hover {
+  background-color: rgb(102, 102, 98);
+}
+
+.mat-row:nth-child(even) {
+  background-color: rgb(245, 245, 245);
+}
+
+.mat-table tr > th {
+  padding: 0.2em 1em 0.2em 1em;
+  margin: 0px;
+  /*background: rgb(158,225,252);
+  background: linear-gradient(180deg, rgba(196, 196, 196, 0.892) 0%, rgba(251,251,251,0.9112687311252626) 48%);*/
+  background: rgb(27, 27, 27);
+  background: linear-gradient(
+    180deg,
+    rgba(27, 27, 27, 0.8916608879880077) 0%,
+    rgba(129, 129, 129, 0.9112687311252626) 99%
+  );
+  height: 10px;
+  border-right: 1px solid lightgray;
+  color: white;
+}
+
+.mat-icon 
+{
+  font-size: 1.2em;
+}
+
+.tab-icon-pending {
+  color: rgb(226, 162, 88);
+}
+
+.tab-icon-refused {
+  color: rgb(226, 88, 88);
+}
+
+.tab-icon-aproved {
+  color: rgb(86, 136, 86);
+}
+
+.mat-icon-button {
+  line-height: 0;
+  height: 0px;
+  width: 40px;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.mat-column-userReqByEmail {
+ 
+  text-align: left;
+ 
+}
+
+.mat-column-strength {
+  
+  text-align: center;
+
+}
+
+.mat-column-tags {
+ 
+  text-align: center;
+ 
+}
+
+.mat-column-reject button.mat-icon-button,
+.mat-column-refuse button.mat-icon-button {
+  color: rgb(226, 88, 88);
+}
+
+.mat-column-accept button.mat-icon-button,
+.mat-column-aprove button.mat-icon-button {
+  color: rgb(86, 136, 86);
+}
+
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-card-header-text {
+  margin: auto !important;
+}
+
+
+.label-container {
+  display: inline-block;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.label-header {
+  float: left;
+  width: 30%;
+  font-weight: bold;
+}
+
+.label-content {
+  float: right;
+  width: 65%;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: lines;
+  margin: 15px 0;
+  justify-content: space-evenly;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.group-label {
+  float: center;
+  width: 30%;
+  font-weight: bold;
+}

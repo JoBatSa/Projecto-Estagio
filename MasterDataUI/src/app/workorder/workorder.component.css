@@ -1,0 +1,11 @@
+.linha {
+    display: flex;
+    flex-flow: row wrap;
+    padding:10px;
+}
+
+
+.coluna-50 {
+    width: 50%;
+    border: 1px solid gray;
+}

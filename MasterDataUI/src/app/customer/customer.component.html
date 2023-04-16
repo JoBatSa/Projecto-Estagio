@@ -1,0 +1,68 @@
+<app-employees></app-employees>
+<mat-card class="search-user-card">
+  <h2>Search Users&nbsp;</h2>
+
+  <p>
+      <strong>
+          <mat-form-field class="full-width">
+              <input matInput placeholder="Search.."  type="text" name="SearchName" #SearchName>
+          </mat-form-field>
+      </strong>
+
+      <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" [(ngModel)]="favoriteSearch">
+       
+            
+      </mat-radio-group>
+
+  <div>
+      <button mat-raised-button color="primary" id="button" (click)=" getselection(SearchName.value); "
+          class="btn btn-primary">
+          Search <!--by {{favoriteSearch}}-->
+      </button>
+  </div>
+
+  <hr />
+  <p>&nbsp;</p>
+
+  <div class="mat-table-container">
+     
+          <!-- Position Column -->
+
+          <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Email">
+                  {{ "Email"  }}
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Name">
+                  {{ "Name"}}
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="location">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Location">
+                  {{ "Location" }}
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="externalProfileUrl">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header
+                  sortActionDescription="Sort by ExternalProfileUrl">
+                  {{ "ExternalProfileUrl" }}
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.externalProfileUrl}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="tableColumnHeaders"></tr>
+          
+    
+
+    
+
+  </div>
+
+</mat-card>

@@ -1,0 +1,108 @@
+<app-menu-zero></app-menu-zero>
+
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  
+
+<form [formGroup]="registerUserFormGroup" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="register-user-card">
+    <mat-card-header >
+      <mat-card-title>{{"Creat VisualAid"}} </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+     
+      
+<!--
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>{{ "Part Number"  }}</mat-label>
+            <input matInput formControlName="partNumber" required />
+          </mat-form-field>
+        </div>
+      </div>
+
+      
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>{{ "Password"  }}</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required />
+            <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{ hide ? "visibility_on" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+-->
+        <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>WorkOrder Number</mat-label>
+            <input disabled value= "{{idType}}" matInput />
+            
+          <!--  <input matInput formControlName="workOrder" />-->
+          </mat-form-field>
+          <mat-icon (click)="userSearchModalDialog('idType')">search</mat-icon>
+        </div>
+      </div>
+
+     <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Company Name</mat-label>
+           <!-- <input matInput formControlName="companyName" />-->
+            <input disabled value= "{{companyType}}" matInput />
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Designation</mat-label>
+           <!-- <input matInput formControlName="companyName" />-->
+            <input disabled value= "{{designationType}}" matInput />
+          </mat-form-field>
+        </div>
+      </div>
+
+
+
+    
+     
+
+      <div class="row">
+        <div class="col">
+           
+            <input mat-raised-button color="primary"  type="file" name="formFile" accept=".jpg" (change)="onChange($event)">
+          <mat-label>Select a Visual Aid File.jpg</mat-label> 
+    
+        
+   
+        </div>
+        <div class="cola">
+           
+            
+        </div>
+      </div>
+
+
+
+      
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" >
+        Submit
+        
+      </button>
+      
+     
+    </mat-card-actions>
+  </mat-card>
+</form>
+
+</main>

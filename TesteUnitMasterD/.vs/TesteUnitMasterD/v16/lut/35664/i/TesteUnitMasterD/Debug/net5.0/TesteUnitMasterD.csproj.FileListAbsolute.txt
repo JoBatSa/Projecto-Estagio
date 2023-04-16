@@ -1,0 +1,4 @@
+D:\Zecar\Documents\projecto-estagio\TesteUnitMasterD\.vs\TesteUnitMasterD\v16\lut\0\i\TesteUnitMasterD\Debug\net5.0\TesteUnitMasterD.csproj.AssemblyReference.cache
+D:\Zecar\Documents\projecto-estagio\TesteUnitMasterD\.vs\TesteUnitMasterD\v16\lut\0\i\TesteUnitMasterD\Debug\net5.0\TesteUnitMasterD.GeneratedMSBuildEditorConfig.editorconfig
+D:\Zecar\Documents\projecto-estagio\TesteUnitMasterD\.vs\TesteUnitMasterD\v16\lut\0\i\TesteUnitMasterD\Debug\net5.0\TesteUnitMasterD.AssemblyInfoInputs.cache
+D:\Zecar\Documents\projecto-estagio\TesteUnitMasterD\.vs\TesteUnitMasterD\v16\lut\0\i\TesteUnitMasterD\Debug\net5.0\TesteUnitMasterD.AssemblyInfo.cs

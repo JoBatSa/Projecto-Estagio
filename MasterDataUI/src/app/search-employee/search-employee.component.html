@@ -1,0 +1,149 @@
+<app-menu-zero></app-menu-zero>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+    <mat-card class="search-user-card">
+    <h2>Search Employees &nbsp;</h2>
+
+    <p>
+        <strong>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Search.."  type="text" name="SearchName" #SearchName>
+            </mat-form-field>
+        </strong>
+
+        <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" [(ngModel)]="favoriteSearch">
+            <mat-radio-button class="radio-button" *ngFor="let WorkAuthorization of search" [value]="WorkAuthorization">
+                {{WorkAuthorization}}
+            </mat-radio-button>
+        </mat-radio-group>
+
+    <div>
+        <button mat-raised-button color="primary" id="button" (click)=" getselection(SearchName.value); "
+            class="btn btn-primary">
+            Search <!--by {{favoriteSearch}}-->
+        </button>
+    </div>
+
+    <hr />
+    <p>&nbsp;</p>
+
+    <div class="mat-table-container">
+        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="changeSort($event)">
+            <!-- Position Column -->
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Id">
+                    {{ "id"  }}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by PartNumber">
+                    {{ "name"  }}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="job_Position">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by OkParts">
+                    {{ "job_Position"  }}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.job_Position}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="userEmail">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by OkParts">
+                    {{ "userEmail"  }}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.userEmail}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="userPhoneNumber">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Location">
+                    {{ "userPhoneNumber"}}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.userPhoneNumber}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="beginWork">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Observation">
+                    {{ "beginWork"}}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.beginWork}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="active">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by CompanyName">
+                    {{ "active"}}
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+            </ng-container>
+
+              
+
+            <tr mat-header-row *matHeaderRowDef="tableColumnHeaders"></tr>
+            <tr mat-row *matRowDef="let element; let row; columns: tableColumnHeaders;"
+                (click)="selectUser(element.id, element.name, element.job_Position,element.userEmail, element.userPhoneNumber, element.beginWork,  element.active);">
+            </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20,100]" showFirstLastButtons
+            aria-label="Select page of periodic elements">
+
+            
+        </mat-paginator>
+
+
+       
+    </div>
+
+</mat-card>
+<!--     Resultados-->
+
+<mat-card class="search-user-card">
+     <hr />
+    <h2>Resultado&nbsp;</h2>
+
+    <p>
+     
+        <hr />
+   
+
+
+    <mat-list>
+        <mat-list-item>Id : {{resultId}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Name: {{resultName}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Job Position :  {{resultJob_Position}} </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item> Email: {{resultUserEmail}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item> Phone Number : {{resultUserPhoneNumber}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item> Active : {{resultActive}}</mat-list-item>
+        <mat-divider></mat-divider>
+               
+  
+ <p>&nbsp;</p>
+
+
+ <div>
+    <button mat-raised-button color="primary" id="button" (click)=" clean(); "
+        class="btn btn-primary">
+        Limpar <!--by {{favoriteSearch}}-->
+    </button>
+</div>
+
+
+    </mat-list>
+
+
+</mat-card>
+
+
+
+</main>
